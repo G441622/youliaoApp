@@ -1,0 +1,5 @@
+<resources>
+    <string name="reactNativeCodePush_androidDeploymentKey" moduleConfig="true"></string>
+
+    <string name="app_name">有料APP</string>
+</resources>

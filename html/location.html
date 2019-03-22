@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=z86YTPQYBf4Yh341gWcXOV300f8HQvdO"></script>  
+    <script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script> 
+    <script>
+        function initialize(){
+            //&callback=initialize
+        }
+        function geocoder(data){      
+            // 创建地理编码实例      
+            var myGeo = new BMap.Geocoder();      
+            // 根据坐标得到地址描述    
+            myGeo.getLocation(new BMap.Point(data.lng, data.lat), function(result){      
+                if (result){      
+                    // alert(result.address); 
+                    window.postMessage(result.address)     
+                }      
+            });
+        }
+        function getLocation(){
+            var geolocation = new BMap.Geolocation();  
+            geolocation.getCurrentPosition(function (r) {  
+                if (this.getStatus() == BMAP_STATUS_SUCCESS) {  
+                    var mk = new BMap.Marker(r.point);  
+                    currentLat = r.point.lat;  
+                    currentLon = r.point.lng;              
+                    var pt = new BMap.Point(currentLon, currentLat);  
+                    var geoc = new BMap.Geocoder();  
+                    geoc.getLocation(pt, function (rs) {  
+                        var addComp = rs.addressComponents;  
+                        
+                        var city = addComp.city;  
+                        var addComp = rs.addressComponents;
+                        var texts = addComp.district + "-" + addComp.street + "-" + addComp.streetNumber;  
+                        //获取地理位置成功，跳转  
+                        console.log(texts)
+                        window.postMessage(texts)
+                    })
+                } 
+            })
+        }
+        window.document.addEventListener('message', function (e) {
+            const message = e.data
+            geocoder(JSON.parse(message))
+            getLocation()
+        })
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

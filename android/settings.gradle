@@ -1,0 +1,28 @@
+rootProject.name = 'ULAPP'
+include ':react-native-code-push', ':push'
+project(':react-native-code-push').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-code-push/android/app')
+include ':react-native-audiowaveform'
+project(':react-native-audiowaveform').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-audiowaveform/android')
+include ':react-native-splash-screen'
+project(':react-native-splash-screen').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-splash-screen/android')
+include ':RCTHttpCache'
+project(':RCTHttpCache').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-http-cache/android')
+include ':react-native-device-info'
+project(':react-native-device-info').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-device-info/android')
+include ':react-native-image-crop-picker'
+project(':react-native-image-crop-picker').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-image-crop-picker/android')
+include ':react-native-keyevent'
+project(':react-native-keyevent').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-keyevent/android')
+include ':react-native-fs'
+project(':react-native-fs').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-fs/android')
+include ':react-native-video'
+project(':react-native-video').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-video/android')
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+include ':react-native-image-picker'
+project(':react-native-image-picker').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-image-picker/android')
+include ':react-native-smart-amap'
+project(':react-native-smart-amap').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-smart-amap/android')
+include ':react-native-smart-amap-location'
+project(':react-native-smart-amap-location').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-smart-amap-location/android')
+include ':app'
